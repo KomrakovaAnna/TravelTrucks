@@ -1,0 +1,65 @@
+.navigation {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  font-size: 18px;
+  width: 100%;
+  padding-left: 20px;
+  display: flex;
+  /* justify-content: center; */
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.navigation li {
+  padding: 10px 5px;
+  margin: 0;
+  list-style: none;
+  text-decoration: none;
+}
+
+.navigation a {
+  color: #101828;
+  text-decoration: none;
+}
+.navigation a:after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 2px;
+  transition: width 0.3s;
+}
+
+.navigation a.active {
+  color: #d84343;
+}
+
+.navigation a.active::after {
+  width: 100%;
+  /* background-color: #d84343; */
+}
+
+.navigation a:hover {
+  color: #d84343;
+}
+
+.navigation a:hover::after {
+  width: 100%;
+  /* background-color: #d84343; */
+}
+.navigationLogo {
+  align-self: flex-start;
+  padding-right: 450px;
+  margin-left: 64px;
+}
+.navigationContainer {
+  display: flex;
+  width: 1440px;
+  padding: 24px 64px;
+  align-items: center;
+  gap: 450px;
+  border-bottom: 1px solid var(--Badges, #f2f4f7);
+  background: var(--Inputs, #f7f7f7);
+}
