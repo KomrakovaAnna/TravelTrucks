@@ -1,30 +1,34 @@
-// import { useState } from "react";
-import Navigation from "./components/Navigation/Navigation";
-import CatalogPage from "./pages/CatalogPage/CatalogPage";
-import CatalogDetailsPage from "./pages/CamperDetailsPage/CatalogDetailsPage";
-import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
-import HomePage from "./pages/HomePage/HomePage";
-
+import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
-
-import "./App.css";
-
-function App() {
+const HomePage = lazy(() => import("./pages/HomePage/HomePage"));
+const NotFoundPage = lazy(() => import("./pages/NotFoundPage/NotFoundPage"));
+import Navigation from "./components/Navigation/Navigation";
+import Loader from "./components/Loader/Loader";
+const CampersPage = lazy(() => import("./pages/CampersPage/CampersPage"));
+const CamperDetailsPage = lazy(() =>
+  import("./pages/CamperDetailsPage/CamperDetailsPage")
+);
+const CamperFeatures = lazy(() =>
+  import("./components/CamperFeatures/CamperFeatures")
+);
+const CamperReviews = lazy(() =>
+  import("./components/CamperReviews/CamperReviews")
+);
+const App = () => {
   return (
-    <div className="app">
+    <Suspense fallback={<Loader />}>
       <Navigation />
-
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/campers" element={<CatalogPage />} />
-        <Route path="/campers/:id" element={<CatalogDetailsPage />}>
-          {/* <Route path="features" element={<Features />} />
-          <Route path="reviews" element={<Reviews />} /> */}
+        <Route path="/catalog" element={<CampersPage />} />
+        <Route path="/catalog/:camperId" element={<CamperDetailsPage />}>
+          <Route path="features" element={<CamperFeatures />} />
+          <Route path="reviews" element={<CamperReviews />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </div>
+    </Suspense>
   );
-}
+};
 
 export default App;

@@ -1,34 +1,25 @@
-import { NavLink, Link } from "react-router-dom";
-import style from "./Navigation.module.css";
+import { NavLink } from "react-router-dom";
 import clsx from "clsx";
-import logo from "../../assets/logo.svg";
+import css from "./Navigation.module.css";
+import Logo from "../Logo/Logo";
 
 const buildLinkClass = ({ isActive }) => {
-  return clsx(style.link, isActive && style.active);
+  return clsx(css.link, isActive && css.active);
 };
 
 const Navigation = () => {
   return (
-    <nav className={style.navigationContainer}>
-      <ul className={style.navigation}>
-        <li>
-          <Link to="/" aria-label="Go to homepage">
-            <img src={logo} alt="Site logo" className={style.navigationLogo} />
-          </Link>
-        </li>
-        <li>
-          <NavLink className={buildLinkClass} to="/">
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink className={buildLinkClass} to="/campers">
-            Catalog
-          </NavLink>
-        </li>
-      </ul>
-      <hr />
-    </nav>
+    <header className={css.headerContainer}>
+      <Logo />
+      <nav className={css.nav}>
+        <NavLink to="/" className={buildLinkClass}>
+          Home
+        </NavLink>
+        <NavLink to="/catalog" className={buildLinkClass}>
+          Catalog
+        </NavLink>
+      </nav>
+    </header>
   );
 };
 

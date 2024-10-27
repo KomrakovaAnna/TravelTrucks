@@ -1,6 +1,6 @@
-import { combineReducers } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
-import campersReducer from "./catalogSlice";
+import { campersReducer } from "./campers/slice.js";
+import { filterReducer } from "./filter/slice";
 import {
   persistStore,
   persistReducer,
@@ -13,23 +13,22 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 
-export const rootReducer = combineReducers({
-  campersReducer,
-});
 const persistConfig = {
   key: "campers",
-  version: 1,
   storage,
 };
 
-const persistedReducer = persistReducer(persistConfig, rootReducer);
+const persistedReducer = persistReducer(persistConfig, campersReducer);
 
 export const store = configureStore({
-  reducer: persistedReducer,
+  reducer: {
+    campersData: persistedReducer,
+    filters: filterReducer,
+  },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
-        ignoreActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
     }),
 });

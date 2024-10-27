@@ -1,0 +1,20 @@
+.imageNotFound {
+  margin: 0 auto;
+}
+button {
+  border: none;
+  background-color: transparent;
+  border-radius: 200px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+
+  padding: 16px 48.5px;
+  background: var(--button);
+  font-family: "Inter", sans-serif;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  color: var(--white);
+}
