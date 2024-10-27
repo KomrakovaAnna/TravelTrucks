@@ -21,14 +21,14 @@ const Feature = ({ camperDetails }) => {
     {
       key: "engine",
       label: "Hybrid",
-      svg: "arcticons--fossilhybrid",
+      svg: "icon-fuel-pump",
       value: "hybrid",
     },
     {
       key: "engine",
       label: "Diesel",
-      svg: "engine",
-      value: "bi--fuel-pump-diesel-fill",
+      svg: "icon-fuel-pump",
+      value: "diesel",
     },
     { key: "engine", label: "Petrol", svg: "icon-fuel-pump", value: "petrol" },
   ];

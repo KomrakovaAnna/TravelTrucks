@@ -1,4 +1,4 @@
-import imageNotFound from "../../assets/3814348.jpg";
+import imageNotFound from "../../assets/404.jpg";
 import css from "./NotFoundPage.module.css";
 import { Link } from "react-router-dom";
 

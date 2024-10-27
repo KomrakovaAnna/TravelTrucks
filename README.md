@@ -19,7 +19,7 @@ API, which is available at:
 
 - **React** – for building the user interface
 - **Vite** – as the project bundler and local server
-- **Versel** – for deployment
+- **Vercel** – for deployment
 
 # Additional:
 

@@ -48,6 +48,18 @@
   resize: none;
 }
 
+.input {
+  border-radius: 12px;
+  padding: 18px;
+  width: 100%;
+  height: 40px;
+  background: var(--inputs);
+  border: none;
+  outline: none;
+  line-height: 1.5;
+  color: var(--main);
+}
+
 .send_button {
   display: block;
   border: none;
